@@ -81,6 +81,22 @@ close to unpredictable from past prices. This project is built so that it
 *cannot* fool you about that (see below). It is a research tool, not financial
 advice.
 
+### Example: AAPL, out of sample Nov 2022 – Nov 2026
+
+`python -m stockthing run AAPL` (default settings, 4 yearly walk-forward blocks):
+
+| ensemble | hit rate | always-up | edge | z | AUC | IC |
+|---|---|---|---|---|---|---|
+| 1-day | 52.2% | 53.9% | −1.7 pp | −1.1 | 0.50 | 0.03 |
+| 5-day | 57.8% | 57.2% | +0.6 pp | 0.2 | 0.54 | 0.13 |
+| 20-day | 65.8% | 64.2% | +1.6 pp | 0.2 | 0.60 | 0.27 |
+
+Nothing beats "always up" at one day. At 20 days the ensemble (and the GRU and
+MLP on their own) rank outcomes better than chance (AUC ≈ 0.6), but with only
+~50 independent 20-day periods the edge is not statistically significant.
+Trading the 1-day P(up) (long or cash, 5 bps costs) returned +132% against
++166% for buy and hold (Sharpe 0.98 vs 1.06).
+
 ## How look-ahead bias is prevented
 
 * every indicator uses only bars up to *t* (tested by recomputing every feature
