@@ -383,7 +383,7 @@ def _method_section(uni, cfg: Config, pred) -> str:
         t0, t1 = pd.Timestamp(g["date"].min()), pd.Timestamp(g["date"].max())
         a = (t0.value - span0) / (span1 - span0) * 100
         b = (t1.value - span0) / (span1 - span0) * 100
-        folds.append(f'<div class="fold"><span class="fold-name">Block {int(k) + 1}</span>'
+        folds.append(f'<div class="fold" role="listitem"><span class="fold-name">Block {int(k) + 1}</span>'
                      f'<span class="fold-track" aria-hidden="true"><span class="fold-train" style="width:{a:.2f}%"></span>'
                      f'<span class="fold-test" style="left:{a:.2f}%;width:{max(b - a, 0.6):.2f}%"></span></span>'
                      f'<span class="fold-dates">train {start:%Y}–{t0:%b %Y} · test {t0:%b %Y}–{t1:%b %Y}</span></div>')

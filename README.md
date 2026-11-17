@@ -33,8 +33,8 @@ python -m stockthing run AAPL
 `run` downloads the data, runs a 4-year walk-forward backtest, trains the final
 models on all history, prints the forecast and writes everything (including
 `report.html` and the trained models) to `runs/<ticker>_<timestamp>/`. On a
-4-core CPU this takes roughly 15 minutes per ticker; add `--quick` for a
-2-minute first look.
+4-core CPU this takes about 7 minutes per ticker; add `--quick` for a
+90-second first look.
 
 Other commands:
 
